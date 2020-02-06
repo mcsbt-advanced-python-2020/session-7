@@ -16,7 +16,7 @@ app.layout = html.Div(children = [
         id="district",
         options=districts,
         multi=True,
-        value=districts[0]["value"]
+        value=[districts[0]["value"]]
     ),
     dcc.Graph(
         id="accidents-graph",
@@ -43,9 +43,6 @@ def change_h2_on_input_change(districts):
         count = df[df["DISTRITO"] == district]["HORA"].count()
         row = {'x': list(range(0, 50)), 'y': [count], 'type': 'bar', 'name': district}
         ys.append(row)
-
-
-    print(ys)
 
     return {
         "data": ys,
