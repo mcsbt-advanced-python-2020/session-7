@@ -11,7 +11,7 @@ app = dash.Dash(__name__)
 districts = [{"label": district, "value": district} for district in  df["DISTRITO"].unique()]
 
 app.layout = html.Div(children = [
-    html.H1("Bicimad accidents by district and time of day"),
+    html.H1("Bicimad accidents by district"),
     dcc.Dropdown(
         id="district",
         options=districts,
@@ -35,7 +35,7 @@ xs = list(sorted(df["HORA"].unique()))
     Output(component_id="accidents-graph",component_property="figure"),
     [Input(component_id="district", component_property="value")]
 )
-def change_h2_on_input_change(districts):
+def update(districts):
 
     data = []
 
