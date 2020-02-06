@@ -37,15 +37,15 @@ xs = list(sorted(df["HORA"].unique()))
 )
 def change_h2_on_input_change(districts):
 
-    ys = []
+    data = []
 
     for district in districts:
         count = df[df["DISTRITO"] == district]["HORA"].count()
-        row = {'x': list(range(0, 50)), 'y': [count], 'type': 'bar', 'name': district}
-        ys.append(row)
+        row = {'x': list(range(0, 100)), 'y': [count], 'type': 'bar', 'name': district}
+        data.append(row)
 
     return {
-        "data": ys,
+        "data": data,
         "layout": {
             "title": "Stock prices"
         }
